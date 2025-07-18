@@ -1,0 +1,17 @@
+pre-commit:
+  commands:
+    format:
+      glob: '**/*.{js,jsx,ts,tsx,json}'
+      run: pnpm run format {staged_files} && git add {staged_files}
+    lint:
+      glob: '**/*.{js,jsx,ts,tsx,json}'
+      run: pnpm run lint {staged_files} && git add {staged_files}
+    check:
+      glob: '**/*.{js,jsx,ts,tsx,json}'
+      run: pnpm run check {staged_files}
+pre-push:
+  commands:
+    build:
+      run: pnpm run build
+    test:
+      run: pnpm run test
